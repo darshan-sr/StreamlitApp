@@ -14,14 +14,7 @@ st.set_page_config(page_title='Student progress Analysis',
 page_icon='RVlogo.png', 
 initial_sidebar_state="expanded")
 
- hide_st_style = """
-             <style>
-             #MainMenu {visibility: hidden;}
-             
-             header {visibility: hidden;}
-             </style>
-             """
-st.markdown(hide_st_style, unsafe_allow_html=True)
+
 
 def get_img_as_base64(file):
     with open(file, "rb") as f:
