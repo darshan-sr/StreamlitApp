@@ -11,36 +11,29 @@ import database as db
 
 
 st.set_page_config(page_title='Student progress Analysis',
-page_icon='/Users/darshangowda/StreamlitApp/RVlogo.png', 
+page_icon='RVlogo.png', 
 initial_sidebar_state="expanded")
 
-# hide_st_style = """
-#             <style>
-#             #MainMenu {visibility: hidden;}
-#             footer {visibility: hidden;}
-#             header {visibility: hidden;}
-#             </style>
-#             """
-# st.markdown(hide_st_style, unsafe_allow_html=True)
+ hide_st_style = """
+             <style>
+             #MainMenu {visibility: hidden;}
+             
+             header {visibility: hidden;}
+             </style>
+             """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 def get_img_as_base64(file):
     with open(file, "rb") as f:
         data = f.read()
     return base64.b64encode(data).decode()
 
-img = get_img_as_base64("/Users/darshangowda/StreamlitApp/sidebarlogo.jpg")
+img = get_img_as_base64("sidebarlogo.jpg")
 
 page_bg_img = f"""
 
 
 <style>
-[data-testid="stAppViewContainer"] > .main {{
-background-image: url("");
-background-size: 180%;
-background-position: top left;
-background-repeat: no-repeat;
-background-attachment: local;
-}}
 
 [data-testid="stSidebar"] > div:first-child {{
 background-image: url("data:image/png;base64,{img}");
@@ -72,7 +65,7 @@ def student_analysis():
     if batch_choice == "2021 Batch":
         branch_choice = st.selectbox("Select the Branch", ["CSE", "ISE","EC", "ME"])
         if branch_choice == "CSE":
-            xls = pd.ExcelFile('/Users/darshangowda/Documents/SavedXLSX/2021.CSE.StudentMarksSheet.xlsx')
+            st.write("No Data Found")
             
 
         if branch_choice == "ISE":
@@ -525,7 +518,7 @@ def Submit_Feedback():
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
-    local_css("/Users/darshangowda/StreamlitApp/style/style.css")
+    local_css("style.css")
 
 
 st.sidebar.title("")
@@ -554,7 +547,6 @@ if selected == "Submit Feedback":
 
 
 
-# st.sidebar.markdown("<div style='text-align:center;'><h1></h1></div>", unsafe_allow_html=True)
 st.sidebar.markdown('***')
 
 
