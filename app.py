@@ -14,6 +14,15 @@ st.set_page_config(page_title='Student progress Analysis',
 page_icon='RVlogo.png', 
 initial_sidebar_state="expanded")
 
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 
 
 def get_img_as_base64(file):
@@ -62,7 +71,7 @@ def student_analysis():
             
 
         if branch_choice == "ISE":
-            xls = pd.ExcelFile('/Users/darshangowda/Documents/SavedXLSX/2021/ISE/2021.ISE.StudentMarksSheet.xlsx')
+            xls = pd.ExcelFile('2021.ISE-6.xlsx')
             plot_analysis(xls)
 
 def plot_analysis(xls):
