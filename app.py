@@ -12,7 +12,6 @@ from glob import glob
 from termcolor import colored
 
 from datetime import datetime
-from google.cloud import firestore
 from google.cloud.firestore import Client
 
 
